@@ -57,11 +57,11 @@ margin-top:15px;
   background:#cbd5e1;
 }
 .hero{
-    min-height:760px;
+    min-height:620px;
 }
 
 .hero-art{
-    min-height:760px;
+    min-height:620px;
 }
 
 .hero-couple{
@@ -69,7 +69,7 @@ margin-top:15px;
     bottom:0;
     right:30px;
 
-    height:700px;
+    height:560px;
     width:auto;
 
     z-index:5;
@@ -141,9 +141,14 @@ margin-top:15px;
 }
 
 .guide-steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:20px;
+}
+
+.guide-steps article{
+  flex:1;
 }
 
 .guide-steps article{
@@ -190,7 +195,7 @@ margin-top:15px;
 
 .look-img{
   width:100%;
-  height:280px;
+  height:220px;
   object-fit:contain;
   border-radius:14px;
   background:linear-gradient(160deg,#f8f5f1,#eadfD3);
