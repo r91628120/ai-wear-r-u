@@ -134,6 +134,40 @@
     </section>
 
     <section class="assistant section-shell" id="assistant">
+    <section class="upload-guide section-shell">
+       <div class="guide-head">
+          <span>HOW IT WORKS</span>
+          <h2>上傳全身照，取得 AI Before / After 穿搭建議</h2>
+          <p>依照 4 個步驟，就能讓 AI WEAR R U 幫你完成專屬穿搭診斷。</p>
+       </div>
+
+       <div class="guide-steps">
+         <article>
+           <b>Step 1</b>
+           <h3>選擇條件</h3>
+           <p>選擇性別、年齡、場合與想搭配的配件。</p>
+         </article>
+
+         <article>
+           <b>Step 2</b>
+           <h3>複製指令</h3>
+           <p>系統會自動整理成 AI 穿搭分析指令。</p>
+         </article>
+
+         <article>
+           <b>Step 3</b>
+           <h3>上傳全身照</h3>
+           <p>進入 GPT 助理後，貼上指令並上傳自拍照。</p>
+         </article>
+
+         <article>
+           <b>Step 4</b>
+           <h3>取得 Before / After</h3>
+           <p>AI 會先產生穿搭圖卡，再依編號提供詳細解說。</p>
+         </article>
+        </div>
+    </section>
+
       <div class="chat-area">
         <div class="assistant-title">
           <span class="brand-mark small">WR</span>
@@ -142,12 +176,32 @@
         </div>
         <div class="message">嗨！我是你的 AI 穿搭助理 👋<br>請告訴我你的需求，我來幫你搭配最適合的造型！</div>
         <div class="look-row">
-          <article><b>日常休閒穿搭</b><div class="look-card">男生日常</div></article>
-          <article><b>上班通勤穿搭</b><div class="look-card">女性通勤</div></article>
-          <article><b>約會穿搭</b><div class="look-card">甜美約會</div></article>
-          <article><b>運動穿搭</b><div class="look-card">俐落運動</div></article>
-          <article><b>度假旅行穿搭</b><div class="look-card">清爽旅行</div></article>
+            <article>
+              <b>日常休閒穿搭</b>
+              <img src="./assets/look-casual.png" class="look-img" alt="日常休閒穿搭">
+            </article>
+
+            <article>
+               <b>上班通勤穿搭</b>
+               <img src="./assets/look-work.png" class="look-img" alt="上班通勤穿搭">
+            </article>
+
+            <article>
+               <b>約會穿搭</b>
+               <img src="./assets/look-date.png" class="look-img" alt="約會穿搭">
+            </article>
+
+            <article>
+               <b>運動穿搭</b>
+               <img src="./assets/look-sport.png" class="look-img" alt="運動穿搭">
+            </article>
+
+            <article>
+              <b>度假旅行穿搭</b>
+              <img src="./assets/look-travel.png" class="look-img" alt="度假旅行穿搭">
+            </article>
         </div>
+        
         <div class="prompt-bar">
           <input id="promptPreview" type="text" readonly placeholder="描述您的需求，例如：我要約會穿搭，女性，25歲..." />
           <a id="gptLink" class="send-btn" href="https://chatgpt.com/g/g-6a1d87b0c6b48191aaa400c9c937a813-ai-wear-r-u-zhi-hui-chuan-da-gu-wen-ping-tai" target="_blank" rel="noopener">➤</a>
@@ -177,6 +231,9 @@
 </div>
       </aside>
     </section>
+
+
+
   </main>
 
   <footer class="footer">
