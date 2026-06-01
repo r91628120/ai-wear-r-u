@@ -5,7 +5,7 @@ const state = {
   accessories: []
 };
 
-const GPT_ASSISTANT_URL = 'https://chatgpt.com/gpts';
+const GPT_ASSISTANT_URL = 'https://chatgpt.com/g/g-6a1d87b0c6b48191aaa400c9c937a813-ai-wear-r-u-zhi-hui-chuan-da-gu-wen-ping-tai';
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
@@ -72,3 +72,26 @@ $('#editPreference').addEventListener('click', () => {
 });
 
 updateSummary();
+
+document.getElementById("copyPromptBtn")
+.addEventListener("click",()=>{
+
+const prompt =
+document.getElementById("promptPreview").value;
+
+navigator.clipboard.writeText(prompt);
+
+alert("已複製穿搭指令，可直接貼到 GPT 助理");
+
+});
+
+document.getElementById("clearPromptBtn")
+.addEventListener("click",()=>{
+
+document.getElementById("promptPreview").value = "";
+
+state.accessories = [];
+
+updateSummary();
+
+});
