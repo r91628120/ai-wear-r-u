@@ -1,192 +1,152 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AI WEAR R U｜AI穿搭資訊平台</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI WEAR R U｜AI穿搭資訊平台</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<header>
-
-<div class="logo">
-
-<span class="logo-icon">WR</span>
-
-<h2>AI WEAR R U</h2>
-
-</div>
-
-<nav>
-
-<a href="#">首頁</a>
-<a href="#">穿搭建議</a>
-<a href="#">虛擬試衣</a>
-<a href="#">衣櫥管理</a>
-<a href="#">購物推薦</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-left">
-
-<h1>你的專屬 AI 穿搭顧問</h1>
-
-<h2>讓每一次出門，都自信滿分</h2>
-
-<p>
-
-根據你的風格、場合與喜好，
-
-AI 為你打造最適合的穿搭提案。
-
-</p>
-
-<a href="#assistant" class="btn">
-
-✨ 進入 GPT 助理
-
-</a>
-
-</div>
-
-<div class="hero-right">
-
-<img src="images/model.png">
-
-</div>
-
-</section>
-
-<section class="selector">
-
-<h2>開始你的 AI 穿搭分析</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>1. 性別</h3>
-
-<select>
-<option>男性</option>
-<option>女性</option>
-<option>其他</option>
-</select>
-
-</div>
-
-<div class="card">
-
-<h3>2. 年齡分層</h3>
-
-<select>
-<option>13-18歲</option>
-<option>19-30歲</option>
-<option>31-54歲</option>
-<option>55歲以上</option>
-</select>
-
-</div>
-
-<div class="card">
-
-<h3>3. 穿著場景</h3>
-
-<select>
-
-<option>上班通勤</option>
-
-<option>約會聚餐</option>
-
-<option>正式場合</option>
-
-<option>運動健身</option>
-
-<option>旅遊穿搭</option>
-
-<option>學校</option>
-
-<option>其他場合</option>
-
-</select>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="accessories">
-
-<h2>4. 衣服配件</h2>
-
-<div class="tags">
-
-<span>項鍊</span>
-<span>手錶</span>
-<span>戒指</span>
-<span>耳環</span>
-<span>手環</span>
-<span>眼鏡</span>
-<span>墨鏡</span>
-<span>髮飾</span>
-<span>包包</span>
-<span>鞋子</span>
-
-</div>
-
-</section>
-
-<section id="assistant">
-
-<div class="assistant-box">
-
-<h2>AI WEAR R U 助理</h2>
-
-<p>
-
-您好！我是您的 AI 穿搭助理 👋
-
-請告訴我：
-
-今天要去哪裡？
-
-想走什麼風格？
-
-我將為您推薦最適合的穿搭方案。
-
-</p>
-
-<a href="https://chatgpt.com/gpts" target="_blank">
-
-<button>
-
-進入 GPT 助理
-
-</button>
-
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 AI WEAR R U
-
-</footer>
-
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-mark">WR</span>
+      <span>AI WEAR R U</span>
+    </a>
+    <nav class="nav">
+      <a class="active" href="#top">首頁</a>
+      <a href="#assistant">穿搭建議</a>
+      <a href="#tryon">虛擬試衣</a>
+      <a href="#wardrobe">衣櫥管理</a>
+      <a href="#shop">購物推薦</a>
+      <a href="#community">穿搭社群</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <h1>你的專屬 AI 穿搭顧問</h1>
+        <h2>讓每一次出門，都自信滿分</h2>
+        <p>根據你的風格、場合與喜好，AI 為你打造最適合的穿搭提案！</p>
+        <a class="primary-btn" href="#assistant">✦ 進入 GPT 助理</a>
+      </div>
+
+      <div class="hero-art" aria-label="AI WEAR R U 穿搭情境圖">
+        <div class="blob blob-blue"></div>
+        <div class="blob blob-beige"></div>
+        <div class="person male">MAN</div>
+        <div class="person female">WOMAN</div>
+        <span class="float-item sunglasses">🕶️</span>
+        <span class="float-item bag">👜</span>
+        <span class="float-item watch">⌚</span>
+        <span class="float-item shoes">👟</span>
+      </div>
+    </section>
+
+    <section class="control-panel section-shell">
+      <div class="step gender-step">
+        <h3>1. 性別</h3>
+        <div class="choice-row" data-group="gender">
+          <button class="choice is-active" data-value="男性">男性</button>
+          <button class="choice" data-value="女性">女性</button>
+        </div>
+      </div>
+
+      <div class="step age-step">
+        <h3>2. 年齡分層</h3>
+        <select id="age">
+          <option value="所有年齡層">所有年齡層</option>
+          <option value="青少年 13-18歲">青少年（13-18）</option>
+          <option value="年輕族群 19-30歲">年輕族群（19-30）</option>
+          <option value="成熟族群 31-54歲">成熟族群（31-54）</option>
+          <option value="55歲以上">55+</option>
+        </select>
+      </div>
+
+      <div class="step occasion-step">
+        <h3>3. 穿著場地選擇</h3>
+        <input id="customOccasion" type="text" placeholder="請輸入或選擇場合，例如：面試、約會、畢旅..." />
+        <div class="pill-grid" data-group="occasion">
+          <button class="pill is-active" data-value="日常休閒">日常休閒</button>
+          <button class="pill" data-value="上班通勤">上班通勤</button>
+          <button class="pill" data-value="約會聚會">約會聚會</button>
+          <button class="pill" data-value="正式場合">正式場合</button>
+          <button class="pill" data-value="運動健身">運動健身</button>
+          <button class="pill" data-value="度假旅行">度假旅行</button>
+          <button class="pill" data-value="學校">學校</button>
+          <button class="pill" data-value="其他場合">其他場合</button>
+        </div>
+      </div>
+
+      <div class="step accessories-step">
+        <h3>4. 衣服配件 <span>可多選</span></h3>
+        <div class="accessory-grid" id="accessories">
+          <button data-value="項鍊">項鍊</button>
+          <button data-value="手錶">手錶</button>
+          <button data-value="戒指">戒指</button>
+          <button data-value="髮飾">髮飾</button>
+          <button data-value="耳環">耳環</button>
+          <button data-value="手環">手環</button>
+          <button data-value="眼鏡">眼鏡</button>
+          <button data-value="墨鏡">墨鏡</button>
+          <button data-value="鞋子">鞋子</button>
+          <button data-value="包包">包包</button>
+        </div>
+      </div>
+
+      <button class="generate-btn" id="generatePrompt">開始生成穿搭建議 ✦</button>
+    </section>
+
+    <section class="features section-shell">
+      <article><span>♡</span><b>AI 精準推薦</b><p>結合你的需求與場合，提供個人化穿搭建議。</p></article>
+      <article><span>👗</span><b>虛擬試衣</b><p>上傳照片即可試穿，找到最適合你的風格。</p></article>
+      <article><span>💼</span><b>衣櫥智能管理</b><p>數位化管理你的衣櫥，輕鬆搭配不煩惱。</p></article>
+      <article><span>🛍️</span><b>購物直達推薦</b><p>精選品牌與單品，一鍵直達購物頁面。</p></article>
+    </section>
+
+    <section class="assistant section-shell" id="assistant">
+      <div class="chat-area">
+        <div class="assistant-title">
+          <span class="brand-mark small">WR</span>
+          <h2>AI WEAR R U 助理</h2>
+          <em>GPT Assistant</em>
+        </div>
+        <div class="message">嗨！我是你的 AI 穿搭助理 👋<br>請告訴我你的需求，我來幫你搭配最適合的造型！</div>
+        <div class="look-row">
+          <article><b>日常休閒穿搭</b><div class="look-card">男生日常</div></article>
+          <article><b>上班通勤穿搭</b><div class="look-card">女性通勤</div></article>
+          <article><b>約會穿搭</b><div class="look-card">甜美約會</div></article>
+          <article><b>運動穿搭</b><div class="look-card">俐落運動</div></article>
+          <article><b>度假旅行穿搭</b><div class="look-card">清爽旅行</div></article>
+        </div>
+        <div class="prompt-bar">
+          <input id="promptPreview" type="text" readonly placeholder="描述您的需求，例如：我要約會穿搭，女性，25歲..." />
+          <a id="gptLink" class="send-btn" href="https://chatgpt.com/gpts" target="_blank" rel="noopener">➤</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <div class="profile-head"><h3>你的偏好</h3><button id="editPreference">編輯</button></div>
+        <p>性別：<span id="summaryGender">男性</span></p>
+        <p>年齡：<span id="summaryAge">所有年齡層</span></p>
+        <p>場合：<span id="summaryOccasion">日常休閒</span></p>
+        <p>配件：<span id="summaryAccessories">尚未選擇</span></p>
+        <p>預算：中等</p>
+        <hr>
+        <h3>推薦單品</h3>
+        <div class="shop-grid"><span>洋裝</span><span>包包</span><span>鞋子</span><span>耳環</span></div>
+        <a class="locked-btn" href="https://chatgpt.com/gpts" target="_blank" rel="noopener">🔒 查看完整推薦</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Instagram</span><span>Facebook</span><span>YouTube</span>
+    <a href="#">關於我們</a><a href="#">隱私政策</a><a href="#">服務條款</a><a href="#">聯絡我們</a>
+    <p>© 2026 AI WEAR R U. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
