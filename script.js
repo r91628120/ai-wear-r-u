@@ -10,20 +10,44 @@ const GPT_ASSISTANT_URL = 'https://chatgpt.com/g/g-6a1d87b0c6b48191aaa400c9c937a
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-function updateSummary() {
+function buildPrompt(){
   state.age = $('#age').value;
+
   const customOccasion = $('#customOccasion').value.trim();
   const finalOccasion = customOccasion || state.occasion;
+  const accessories = state.accessories.length ? state.accessories.join('、') : '無特別指定';
 
-  $('#summaryGender').textContent = state.gender;
-  $('#summaryAge').textContent = state.age;
-  $('#summaryOccasion').textContent = finalOccasion;
-  $('#summaryAccessories').textContent = state.accessories.length ? state.accessories.join('、') : '尚未選擇';
+  return `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${accessories}」。
 
-  const prompt = `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${state.accessories.length ? state.accessories.join('、') : '無特別指定'}」。請用 AI WEAR R U 專業穿搭顧問角度，幫我分析適合的穿搭、顏色、鞋子、包包與配件，並請提醒我可以上傳照片進一步分析。`;
+請用 AI WEAR R U 專業穿搭顧問角度協助我。
 
+我接下來會上傳照片，可能是全身照、半身照或自拍照。
+
+請先依照照片類型自動判斷：
+
+1. 全身照：完整穿搭 Before / After 改造
+2. 半身照：上半身穿搭＋髮型設計
+3. 自拍照：臉型、髮型、配件與上身造型分析
+
+請先產出「AI WEAR R U 穿搭診斷教學圖卡」，不要一開始就輸出長篇文字。
+
+圖卡完成後，請詢問我是否需要進一步說明，並用編號列出選項。`;
+}
+
+function updatePrompt(){
+  const prompt = buildPrompt();
   $('#promptPreview').value = prompt;
-  $('#gptLink').href = `${GPT_ASSISTANT_URL}?q=${encodeURIComponent(prompt)}`;
+  $('#gptLink').href = GPT_ASSISTANT_URL;
+}
+
+function showToast(message){
+  const toast = $('#toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2200);
 }
 
 $$('.choice-row .choice').forEach(button => {
@@ -31,7 +55,7 @@ $$('.choice-row .choice').forEach(button => {
     $$('.choice-row .choice').forEach(item => item.classList.remove('is-active'));
     button.classList.add('is-active');
     state.gender = button.dataset.value;
-    updateSummary();
+    updatePrompt();
   });
 });
 
@@ -41,7 +65,7 @@ $$('.pill-grid .pill').forEach(button => {
     button.classList.add('is-active');
     state.occasion = button.dataset.value;
     $('#customOccasion').value = '';
-    updateSummary();
+    updatePrompt();
   });
 });
 
@@ -55,43 +79,39 @@ $$('#accessories button').forEach(button => {
     } else {
       state.accessories.push(value);
     }
-    updateSummary();
+
+    updatePrompt();
   });
 });
 
-$('#age').addEventListener('change', updateSummary);
-$('#customOccasion').addEventListener('input', updateSummary);
+$('#age').addEventListener('change', updatePrompt);
+$('#customOccasion').addEventListener('input', updatePrompt);
 
-$('#generatePrompt').addEventListener('click', () => {
-  updateSummary();
+$('#generatePrompt').addEventListener('click', async () => {
+  updatePrompt();
+
+  const prompt = $('#promptPreview').value;
+  await navigator.clipboard.writeText(prompt);
+
   location.hash = '#assistant';
+  showToast('已產生並複製 AI 穿搭分析指令！');
 });
 
-$('#editPreference').addEventListener('click', () => {
-  location.hash = '#top';
+$('#copyPromptBtn').addEventListener('click', async () => {
+  const prompt = $('#promptPreview').value;
+  await navigator.clipboard.writeText(prompt);
+  showToast('已複製 AI 穿搭分析指令！');
 });
 
-updateSummary();
+$('#clearPromptBtn').addEventListener('click', () => {
+  $('#promptPreview').value = '';
+  state.accessories = [];
 
-document.getElementById("copyPromptBtn")
-.addEventListener("click",()=>{
+  $$('#accessories button').forEach(button => {
+    button.classList.remove('is-active');
+  });
 
-const prompt =
-document.getElementById("promptPreview").value;
-
-navigator.clipboard.writeText(prompt);
-
-alert("已複製穿搭指令，可直接貼到 GPT 助理");
-
+  showToast('已清除指令');
 });
 
-document.getElementById("clearPromptBtn")
-.addEventListener("click",()=>{
-
-document.getElementById("promptPreview").value = "";
-
-state.accessories = [];
-
-updateSummary();
-
-});
+updatePrompt();
