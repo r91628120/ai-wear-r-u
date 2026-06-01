@@ -258,3 +258,40 @@ margin-top:15px;
   }
 
 }
+
+.assistant-v3{
+  margin-top:24px;
+  margin-bottom:28px;
+}
+
+.assistant-v3 .chat-area{
+  width:100%;
+}
+.v3-actions{
+  display:flex;
+  gap:14px;
+  margin-top:20px;
+}
+
+.enter-gpt-btn{
+  flex:1;
+  height:58px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:999px;
+
+  background:#071d49;
+  color:white;
+
+  font-weight:900;
+
+  box-shadow:0 12px 24px rgba(7,29,73,.18);
+}
+
+.v3-actions .locked-btn{
+  flex:1;
+  height:58px;
+}

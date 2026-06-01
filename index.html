@@ -136,7 +136,7 @@
 <section class="upload-guide section-shell">
   <div class="guide-head">
     <span>HOW IT WORKS</span>
-    <h2>上傳全身照，取得 AI Before / After 穿搭建議</h2>
+    <h2>上傳照片，取得 AI Before / After 穿搭建議</h2>
     <p>依照 4 個步驟，就能讓 AI WEAR R U 幫你完成專屬穿搭診斷。</p>
   </div>
 
@@ -155,8 +155,18 @@
 
     <article>
       <b>Step 3</b>
-      <h3>上傳全身照</h3>
-      <p>進入 GPT 助理後，貼上指令並上傳自拍照。</p>
+     <h3>上傳照片</h3>
+
+      <p>
+        📸 全身照：
+            完整穿搭改造
+
+        📸 半身照：
+           上身穿搭＋髮型建議
+
+        📸 自拍照：
+           臉型、配件與髮型分析
+      </p>
     </article>
 
     <article>
@@ -167,7 +177,7 @@
   </div>
 </section>
 
-<section class="assistant section-shell" id="assistant">
+<section class="assistant-v3 section-shell" id="assistant">
       <div class="chat-area">
         <div class="assistant-title">
           <span class="brand-mark small">WR</span>
@@ -208,26 +218,25 @@
         </div>
       </div>    
 
-      <aside class="profile-card">
-        <div class="profile-head"><h3>你的偏好</h3><button id="editPreference">編輯</button></div>
-        <p>性別：<span id="summaryGender">男性</span></p>
-        <p>年齡：<span id="summaryAge">所有年齡層</span></p>
-        <p>場合：<span id="summaryOccasion">日常休閒</span></p>
-        <p>配件：<span id="summaryAccessories">尚未選擇</span></p>
-        <p>預算：中等</p>
-        <hr>
-        
-        <div class="action-buttons">
+        <div class="v3-actions">
 
-           <button id="copyPromptBtn" class="locked-btn">
-             📋複製完整 AI 穿搭分析指令
-           </button>
+              <button id="copyPromptBtn"
+                      class="locked-btn">
+                      📋 複製 AI 穿搭分析指令
+              </button>
 
-           <button type="button" id="clearPromptBtn" class="secondary-btn">
-              🗑 清除指令
-           </button>
+            <a href="https://chatgpt.com/g/g-6a1d87b0c6b48191aaa400c9c937a813-ai-wear-r-u-zhi-hui-chuan-da-gu-wen-ping-tai"
+                     target="_blank"
+                     class="enter-gpt-btn">
+
+                     ✦ 進入 AI WEAR R U 助理
+
+            </a>
+
         </div>
-      </aside>
+
+
+      
     </section>
 
 
