@@ -510,3 +510,105 @@ margin-top:15px;
     font-size:18px;
   }
 }
+/* ===== v6.1 完整專業分析 ===== */
+
+.analysis-box{
+
+  background:white;
+
+  border:1px solid #eee4da;
+
+  border-radius:20px;
+
+  padding:28px;
+
+  margin-bottom:22px;
+
+  text-align:center;
+
+}
+
+.analysis-box h3{
+
+  color:#071d49;
+
+  font-size:28px;
+
+  margin-bottom:10px;
+
+}
+
+.analysis-box p{
+
+  color:#64748b;
+
+  margin-bottom:18px;
+
+  font-size:17px;
+
+}
+
+.analysis-list{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:10px;
+
+  margin-bottom:22px;
+
+}
+
+.analysis-list span{
+
+  background:#f8f4ef;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  font-weight:800;
+
+}
+
+/* 橘色 CTA */
+
+.generate-final-btn{
+
+  width:100%;
+
+  height:80px;
+
+  border:none;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+  135deg,
+  #ff8a00,
+  #ff6b00
+  );
+
+  color:white;
+
+  font-size:24px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  margin-top:16px;
+
+  box-shadow:
+  0 15px 30px rgba(255,106,0,.25);
+
+}
+
+.generate-final-btn:hover{
+
+  transform:translateY(-2px);
+
+}
