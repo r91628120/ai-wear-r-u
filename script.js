@@ -2,7 +2,8 @@ const state = {
   gender: '男性',
   age: '所有年齡層',
   occasion: '日常休閒',
-  accessories: []
+  accessories: [],
+  functions: []
 };
 
 const GPT_ASSISTANT_URL = 'https://chatgpt.com/g/g-6a1d87b0c6b48191aaa400c9c937a813-ai-wear-r-u-zhi-hui-chuan-da-gu-wen-ping-tai';
@@ -16,23 +17,31 @@ function buildPrompt(){
   const customOccasion = $('#customOccasion').value.trim();
   const finalOccasion = customOccasion || state.occasion;
   const accessories = state.accessories.length ? state.accessories.join('、') : '無特別指定';
+  const functions = state.functions.length
+  ? state.functions.join('、')
+  : '完整專業分析';
 
-  return `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${accessories}」。
 
-請用 AI WEAR R U 專業穿搭顧問角度協助我。
+ return `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${accessories}」。
 
-我接下來會上傳照片，可能是全身照、半身照或自拍照。
+   我希望 AI 協助的功能有：「${functions}」。
 
-請先依照照片類型自動判斷：
+   請用 AI WEAR R U 專業穿搭顧問角度協助我。
 
-1. 全身照：完整穿搭 Before / After 改造
-2. 半身照：上半身穿搭＋髮型設計
-3. 自拍照：臉型、髮型、配件與上身造型分析
+   我接下來會上傳照片，可能是全身照、半身照或自拍照。
 
-請先產出「AI WEAR R U 穿搭診斷教學圖卡」，不要一開始就輸出長篇文字。
+   請先依照照片類型自動判斷：
 
-圖卡完成後，請詢問我是否需要進一步說明，並用編號列出選項。`;
-}
+    1. 全身照：完整穿搭 Before / After 改造
+    2. 半身照：上半身穿搭＋髮型設計
+    3. 自拍照：臉型、髮型、配件與上身造型分析
+
+   請優先產出 AI WEAR R U 穿搭診斷圖卡與 Before / After 改造圖卡。
+
+   不要一開始就輸出長篇文字。
+
+   圖卡完成後，請詢問我是否需要進一步說明，並用編號列出選項。`;
+  }
 
 function updatePrompt(){
   const prompt = buildPrompt();
@@ -105,13 +114,37 @@ $('#copyPromptBtn').addEventListener('click', async () => {
 
 $('#clearPromptBtn').addEventListener('click', () => {
   $('#promptPreview').value = '';
+
   state.accessories = [];
+  state.functions = [];
 
   $$('#accessories button').forEach(button => {
     button.classList.remove('is-active');
+  });
+
+  $$('.func-group input').forEach(item => {
+    item.checked = false;
   });
 
   showToast('已清除指令');
 });
 
 updatePrompt();
+
+document.querySelectorAll('.func-group input').forEach(item => {
+  item.addEventListener('change', () => {
+    state.functions = state.functions.filter(f => f !== '完整專業分析');
+
+    const value = item.value;
+
+    if (item.checked) {
+      if (!state.functions.includes(value)) {
+        state.functions.push(value);
+      }
+    } else {
+      state.functions = state.functions.filter(f => f !== value);
+    }
+
+    updatePrompt();
+  });
+});

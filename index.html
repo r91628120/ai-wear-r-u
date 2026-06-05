@@ -73,6 +73,7 @@
     </section>
 
     <section class="control-panel section-shell">
+    
       <div class="step gender-step">
         <h3>1. 性別</h3>
         <div class="choice-row" data-group="gender">
@@ -123,8 +124,81 @@
         </div>
       </div>
 
-      <button class="generate-btn" id="generatePrompt">開始生成穿搭建議 ✦</button>
-    </section>
+       <button class="generate-btn" id="generatePrompt">開始生成穿搭建議 ✦</button>
+      </section>
+
+        <section class="ai-functions section-shell">
+      <div class="function-head">
+        <span>AI FUNCTION CENTER</span>
+             <h2>選擇你想要的 AI 穿搭功能</h2>
+             <p>可複選，系統會自動整理成 AI 穿搭分析指令。</p>
+         </div>
+         <div class="func-group">
+           <h3>🎨 風格改造</h3>
+
+            <label><input type="checkbox" value="韓系質感風">韓系質感風</label>
+            <label><input type="checkbox" value="日系簡約風">日系簡約風</label>
+            <label><input type="checkbox" value="歐美時尚風">歐美時尚風</label>
+            <label><input type="checkbox" value="精品奶茶風">精品奶茶風</label>
+            <label><input type="checkbox" value="商務菁英風">商務菁英風</label>
+
+         </div>
+
+        <div class="func-group">
+
+            <h3>🔍 穿搭分析</h3>
+
+             <label><input type="checkbox" value="身形分析">身形分析</label>
+
+             <label><input type="checkbox" value="配色分析">配色分析</label>
+
+             <label><input type="checkbox" value="配件分析">配件分析</label>
+
+             <label><input type="checkbox" value="鞋款分析">鞋款分析</label>
+
+             <label><input type="checkbox" value="髮型建議">髮型建議</label>
+
+             <label><input type="checkbox" value="穿搭優缺點">穿搭優缺點</label>
+
+        </div>
+
+        <div class="func-group">
+
+            <h3>🤖 AI虛擬改造</h3>
+
+               <label>
+                 <input type="checkbox"
+                        value="AI Before After">
+                          AI Before / After(穿搭改造圖卡)                
+                </label>
+
+              <label>
+                 <input type="checkbox"
+                        value="AI換髮型">
+                         AI換髮型(髮型改造圖卡)
+              </label>
+
+              <label>
+                <input type="checkbox"
+                       value="AI換鞋款">
+                        AI換鞋款(鞋款改造圖卡)
+              </label>
+
+              <label>
+               <input type="checkbox"
+                      value="AI全套改造">
+                       AI全套改造(全身穿搭改造圖卡)
+              </label>
+
+        </div>
+
+             <button id="fullAnalysisBtn"
+                  class="full-analysis-btn">
+                     🚀 完整專業分析
+             </button>
+
+       </section>
+
 
     <section class="features section-shell">
   <article><span>♡</span><b>AI 精準推薦</b><p>結合你的需求與場合，提供個人化穿搭建議。</p></article>
