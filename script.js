@@ -148,3 +148,14 @@ document.querySelectorAll('.func-group input').forEach(item => {
     updatePrompt();
   });
 });
+
+$('#fullAnalysisBtn').addEventListener('click', () => {
+  state.functions = ['完整專業分析'];
+
+  $$('.func-group input').forEach(item => {
+    item.checked = false;
+  });
+
+  updatePrompt();
+  showToast('已選擇完整專業分析！');
+});
