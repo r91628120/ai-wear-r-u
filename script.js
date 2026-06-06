@@ -24,7 +24,7 @@ function buildPrompt(){
 
  return `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${accessories}」。
 
-   我希望達成的穿搭目標與分析功能有：「${functions}」。
+   我希望達成的形象目標與分析功能有：「${functions}」。
 
    請用 AI WEAR R U 專業穿搭顧問角度協助我。
 
