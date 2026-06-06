@@ -1132,3 +1132,21 @@ color:#444;
     font-size:22px;
   }
 }
+
+.mode-notice{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin:18px auto 20px;
+  flex-wrap:wrap;
+}
+
+.mode-item{
+  padding:12px 20px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #eee4da;
+  font-weight:900;
+  color:#071d49;
+  box-shadow:0 8px 18px rgba(15,23,42,.06);
+}
