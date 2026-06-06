@@ -997,3 +997,30 @@ line-height:2;
 font-size:18px;
 color:#444;
 }
+
+/* 法律頁／關於頁 Header Logo 修正 */
+.site-header .brand img{
+  width:56px;
+  height:56px;
+  object-fit:contain;
+  display:block;
+  flex-shrink:0;
+}
+
+.site-header .brand span{
+  font-size:24px;
+  font-weight:900;
+  color:#071d49;
+  line-height:1.2;
+}
+
+@media(max-width:560px){
+  .site-header .brand img{
+    width:44px;
+    height:44px;
+  }
+
+  .site-header .brand span{
+    font-size:20px;
+  }
+}
