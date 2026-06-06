@@ -24,7 +24,7 @@ function buildPrompt(){
 
  return `我是 ${state.gender}，年齡層是「${state.age}」，我要去「${finalOccasion}」，希望搭配的配件有「${accessories}」。
 
-   我希望 AI 協助的功能有：「${functions}」。
+   我希望達成的穿搭目標與分析功能有：「${functions}」。
 
    請用 AI WEAR R U 專業穿搭顧問角度協助我。
 
@@ -36,7 +36,11 @@ function buildPrompt(){
     2. 半身照：上半身穿搭＋髮型設計
     3. 自拍照：臉型、髮型、配件與上身造型分析
 
-   請優先產出 AI WEAR R U 穿搭診斷圖卡與 Before / After 改造圖卡。
+    如果使用者選擇 AI虛擬改造功能，
+      請優先產生改造圖卡。
+
+    如果使用者選擇穿搭分析功能，
+      請優先提供穿搭分析圖卡。
 
    不要一開始就輸出長篇文字。
 
@@ -131,6 +135,13 @@ $('#clearPromptBtn').addEventListener('click', () => {
 
 updatePrompt();
 
+const virtualFunctions = [
+  'AI Before After',
+  'AI換髮型',
+  'AI換鞋款',
+  'AI全套改造'
+];
+
 document.querySelectorAll('.func-group input').forEach(item => {
   item.addEventListener('change', () => {
     state.functions = state.functions.filter(f => f !== '完整專業分析');
@@ -138,9 +149,20 @@ document.querySelectorAll('.func-group input').forEach(item => {
     const value = item.value;
 
     if (item.checked) {
+
+      if (virtualFunctions.includes(value)) {
+        document.querySelectorAll('.func-group input').forEach(cb => {
+          if (virtualFunctions.includes(cb.value) && cb !== item) {
+            cb.checked = false;
+            state.functions = state.functions.filter(f => f !== cb.value);
+          }
+        });
+      }
+
       if (!state.functions.includes(value)) {
         state.functions.push(value);
       }
+
     } else {
       state.functions = state.functions.filter(f => f !== value);
     }

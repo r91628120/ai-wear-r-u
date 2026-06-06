@@ -612,3 +612,15 @@ margin-top:15px;
   transform:translateY(-2px);
 
 }
+
+.virtual-tip{
+
+  margin-bottom:16px;
+
+  color:#64748b;
+
+  font-size:15px;
+
+  line-height:1.8;
+
+}
