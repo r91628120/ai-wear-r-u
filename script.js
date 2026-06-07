@@ -201,7 +201,19 @@ $('#fullAnalysisBtn').addEventListener('click', () => {
   showToast('已選擇完整專業分析！');
 });
 
-const STATS_API = "https://script.google.com/macros/s/AKfycbzeds257DTcIfd4h12eHCjPJnUGELVK6hrGWyOl1dMPzEC9A9Fkz3e2qJglgvo_Qwym/exec";
+
+
+const STATS_API = "https://script.google.com/macros/s/AKfycbwYBbZ_VWWz0Z5bbiSy35PYEeugPfJ5V_8SSI0DB-Ze4saMEQVYmDuR8hl6ZJ5IgZ3F/exec";
+
+function jsonp(url, callbackName) {
+  const script = document.createElement("script");
+  script.src = url + (url.includes("?") ? "&" : "?") + "callback=" + callbackName;
+  document.body.appendChild(script);
+
+  script.onload = () => {
+    script.remove();
+  };
+}
 
 function getCurrentOccasion() {
   const customOccasion = $('#customOccasion').value.trim();
@@ -221,21 +233,23 @@ function getCurrentAccessories() {
 }
 
 function loadStats() {
-  fetch(STATS_API)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("analysisCount").textContent =
-        data.totalAnalysis + "+";
+  window.handleStats = function(data) {
+    document.getElementById("analysisCount").textContent =
+      data.totalAnalysis + "+";
 
-      document.getElementById("visitorCount").textContent =
-        data.totalVisitors + "+";
-    })
-    .catch(() => {
-      console.log("統計資料讀取失敗");
-    });
+    document.getElementById("visitorCount").textContent =
+      data.totalVisitors + "+";
+  };
+
+  jsonp(STATS_API, "handleStats");
 }
 
 function addAnalysisCount() {
+  window.handleAddAnalysis = function(data) {
+    document.getElementById("analysisCount").textContent =
+      data.totalAnalysis + "+";
+  };
+
   const params = new URLSearchParams({
     action: "addAnalysis",
     gender: state.gender,
@@ -245,15 +259,7 @@ function addAnalysisCount() {
     accessories: getCurrentAccessories()
   });
 
-  fetch(STATS_API + "?" + params.toString())
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("analysisCount").textContent =
-        data.totalAnalysis + "+";
-    })
-    .catch(() => {
-      console.log("分析次數更新失敗");
-    });
+  jsonp(STATS_API + "?" + params.toString(), "handleAddAnalysis");
 }
 
 loadStats();
