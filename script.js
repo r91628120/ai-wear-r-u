@@ -123,6 +123,8 @@ $('#generatePrompt').addEventListener('click', async () => {
   const prompt = $('#promptPreview').value;
   await navigator.clipboard.writeText(prompt);
 
+  addAnalysisCount();
+
   location.hash = '#assistant';
   showToast('已產生並複製 AI 穿搭分析指令！');
 });
@@ -198,3 +200,60 @@ $('#fullAnalysisBtn').addEventListener('click', () => {
   updatePrompt();
   showToast('已選擇完整專業分析！');
 });
+
+const STATS_API = "https://script.google.com/macros/s/AKfycbzeds257DTcIfd4h12eHCjPJnUGELVK6hrGWyOl1dMPzEC9A9Fkz3e2qJglgvo_Qwym/exec";
+
+function getCurrentOccasion() {
+  const customOccasion = $('#customOccasion').value.trim();
+  return customOccasion || state.occasion || '日常休閒';
+}
+
+function getCurrentFunctions() {
+  return state.functions.length
+    ? state.functions.join('、')
+    : '完整專業分析';
+}
+
+function getCurrentAccessories() {
+  return state.accessories.length
+    ? state.accessories.join('、')
+    : '無特別指定';
+}
+
+function loadStats() {
+  fetch(STATS_API)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("analysisCount").textContent =
+        data.totalAnalysis + "+";
+
+      document.getElementById("visitorCount").textContent =
+        data.totalVisitors + "+";
+    })
+    .catch(() => {
+      console.log("統計資料讀取失敗");
+    });
+}
+
+function addAnalysisCount() {
+  const params = new URLSearchParams({
+    action: "addAnalysis",
+    gender: state.gender,
+    age: $('#age').value,
+    occasion: getCurrentOccasion(),
+    functions: getCurrentFunctions(),
+    accessories: getCurrentAccessories()
+  });
+
+  fetch(STATS_API + "?" + params.toString())
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("analysisCount").textContent =
+        data.totalAnalysis + "+";
+    })
+    .catch(() => {
+      console.log("分析次數更新失敗");
+    });
+}
+
+loadStats();
