@@ -203,7 +203,7 @@ $('#fullAnalysisBtn').addEventListener('click', () => {
 
 
 
-const STATS_API = "https://script.google.com/macros/s/AKfycbwYBbZ_VWWz0Z5bbiSy35PYEeugPfJ5V_8SSI0DB-Ze4saMEQVYmDuR8hl6ZJ5IgZ3F/exec";
+const STATS_API = "https://script.google.com/macros/s/AKfycbxq-NSyxCGHlRjJMY4mcWicClQYGIgYxEgDOOHD51vYB_tBuw0Z94cnw3xvrbHnZCGc/exec";
 
 function jsonp(url, callbackName) {
   const script = document.createElement("script");
