@@ -262,4 +262,26 @@ function addAnalysisCount() {
   jsonp(STATS_API + "?" + params.toString(), "handleAddAnalysis");
 }
 
-loadStats();
+function addVisitorCount() {
+  const today = new Date().toISOString().slice(0, 10);
+  const visitedKey = "wearRUVisited_" + today;
+
+  if (localStorage.getItem(visitedKey)) {
+    loadStats();
+    return;
+  }
+
+  window.handleAddVisitor = function(data) {
+    document.getElementById("analysisCount").textContent =
+      data.totalAnalysis + "+";
+
+    document.getElementById("visitorCount").textContent =
+      data.totalVisitors + "+";
+
+    localStorage.setItem(visitedKey, "yes");
+  };
+
+  jsonp(STATS_API + "?action=addVisitor", "handleAddVisitor");
+}
+
+addVisitorCount();
