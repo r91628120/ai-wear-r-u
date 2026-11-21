@@ -105,6 +105,149 @@
       text-align:center;
       line-height:1.6;
     }
+
+    
+/* ===== 精選品牌購物推薦 ===== */
+
+#shop {
+  scroll-margin-top: 100px;
+}
+
+.shop-section {
+  margin: 32px auto;
+  padding: 36px 24px;
+  background: #fffdf9;
+  border: 1px solid #e9e2d8;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.shop-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.shop-head span {
+  color: #b58d65;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.shop-head h2 {
+  color: #0a1e48;
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.shop-head p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.shop-brand-card {
+  background: #ffffff;
+  border: 1px solid #e9e2d8;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform .25s ease,
+              box-shadow .25s ease;
+}
+
+.shop-brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.shop-brand-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.shop-brand-card h3 {
+  color: #0a1e48;
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.shop-brand-slogan {
+  color: #b58d65;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.shop-brand-style {
+  color: #0a1e48;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.shop-brand-desc {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0 22px;
+}
+
+.shop-brand-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  margin-top: auto;
+  background: #0a1e48;
+  color: #ffffff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background .2s ease;
+}
+
+.shop-brand-btn:hover {
+  background: #254473;
+  color: #ffffff;
+}
+
+.shop-disclaimer {
+  margin-top: 25px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-section {
+    padding: 25px 16px;
+  }
+
+  .shop-head h2 {
+    font-size: 24px;
+  }
+}
+ 
+
+
   </style>
 </head>
 <body>
@@ -692,6 +835,112 @@
   </div>
 </section>
 
+
+<!-- ===== 精選品牌購物推薦 ===== -->
+
+<section id="shop" class="shop-section section-shell">
+
+  <div class="shop-head">
+    <span>FASHION SHOPPING</span>
+
+    <h2>精選品牌・購物推薦</h2>
+
+    <p>
+      從 AI 穿搭建議到日常生活，
+      找到適合自己的時尚單品。
+    </p>
+  </div>
+
+  <div class="shop-grid">
+
+    <!-- UNIQLO 品牌推薦 -->
+
+    <article class="shop-brand-card">
+
+      <img
+        src="./assets/uniqlo-logo.png"
+        alt="UNIQLO 品牌 Logo"
+        class="shop-brand-logo"
+        loading="lazy"
+      >
+
+      <h3>UNIQLO</h3>
+
+      <div class="shop-brand-slogan">
+        LifeWear 服適人生
+      </div>
+
+      <div class="shop-brand-style">
+        日系簡約 × 日常質感
+      </div>
+
+      <p class="shop-brand-desc">
+        適合日常休閒、上班通勤、
+        日系簡約與成熟穩重的穿搭風格。
+        探索兼具舒適、機能與質感的
+        日常服飾。
+      </p>
+
+      <a
+        href="https://www.uniqlo.com/tw/zh_TW/c/feature.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shop-brand-btn"
+      >
+        前往 UNIQLO 官網 ↗
+      </a>
+
+    </article>
+
+    <!-- GU 品牌推薦 -->
+
+    <article class="shop-brand-card">
+
+      <img
+        src="./assets/gu-logo.png"
+        alt="GU 品牌 Logo"
+        class="shop-brand-logo"
+        loading="lazy"
+      >
+
+      <h3>GU</h3>
+
+      <div class="shop-brand-slogan">
+        自由時尚・自在穿搭
+      </div>
+
+      <div class="shop-brand-style">
+        流行趨勢 × 年輕風格
+      </div>
+
+      <p class="shop-brand-desc">
+        適合校園穿搭、約會聚會、
+        韓系風格與年輕時尚造型。
+        以親民的時尚選擇，
+        打造屬於自己的穿搭風格。
+      </p>
+
+      <a
+        href="https://www.gu-global.com/tw/zh_TW/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shop-brand-btn"
+      >
+        前往 GU 官網 ↗
+      </a>
+
+    </article>
+
+  </div>
+
+  <p class="shop-disclaimer">
+    本區提供品牌官網導覽，非品牌官方合作或授權銷售頁面。
+    商品資訊、價格及優惠活動以各品牌官方網站公告為準。
+  </p>
+
+</section>
+
+<!-- ===== 購物推薦結束 ===== -->
 
 
   </main>
